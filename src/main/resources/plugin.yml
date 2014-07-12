@@ -1,0 +1,8 @@
+name: MMRotator
+main: com.minemee.MMRotator.MMRotator
+version: 1.0
+commands:
+   mmrotateon:
+      description: Turn on tool.
+   mmrotateoff:
+      description: Turn off tool.
