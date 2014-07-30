@@ -1,8 +1,28 @@
 name: MMRotator
 main: com.minemee.MMRotator.MMRotator
 version: 1.0
+description: >
+             Rotates stairs.
 commands:
-   mmrotateon:
-      description: Turn on tool.
-   mmrotateoff:
-      description: Turn off tool.
+   rotateon:
+      description: Activates the rotator tool.
+      usage: /rotateon
+      permission: MMRotator.rotateon
+      permission-message: You don't have permission.
+   rotateoff:
+      description: Deactivates the rotator tool.
+      usage: /rotateoff
+      permission: MMRotator.rotateoff
+      permission-message: You don't have permission.
+permissions:
+   MMRotator.*:
+       description: Gives access to MMRotator.
+       children:
+           MMRotator.rotateon: true
+           MMRotator.rotateoff: true
+   MMRotator.rotateon:
+       description: Allows activation of Rotator Tool.
+       default: op
+   MMRotator.rotateoff:
+       description: Allows deactivation of Rotator Tool.
+       default: op
