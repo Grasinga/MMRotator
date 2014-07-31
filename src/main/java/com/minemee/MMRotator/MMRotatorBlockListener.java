@@ -1,10 +1,7 @@
 package com.minemee.MMRotator;
 
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -13,28 +10,9 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 public class MMRotatorBlockListener implements Listener {
-	private boolean active = true;
+	private static boolean active = false;
 	private int count = 0;
-	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
-		Player player = (Player) sender; 	
-		if(label.equalsIgnoreCase("rotateon")){
-			player.sendMessage(ChatColor.GREEN + "Rotator Tool Activated");
-			active = true;
-			return true;
-		}
-		else if(label.equalsIgnoreCase("rotateoff"))
-		{
-			player.sendMessage(ChatColor.RED + "Rotator Tool De-activated");
-			active = false;
-			return true;
-		}
-		else if(label.equalsIgnoreCase("rotateon") || label.equalsIgnoreCase("rotateoff") && (!(sender instanceof Player)))
-		{
-			sender.sendMessage("This command can only be used by a player.");
-			return true;
-		}
-		return false;
-	}
+	public static void setActive(boolean b){active = b;}
 	@SuppressWarnings("deprecation")
 	@EventHandler(priority = EventPriority.NORMAL)
 	public void stickChange(PlayerInteractEvent event){	

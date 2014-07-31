@@ -10,6 +10,7 @@ public class MMRotator extends JavaPlugin {
 	Logger log = Logger.getLogger("Minecraft");
 
 	public final MMRotatorBlockListener blockListener = new MMRotatorBlockListener();
+	public final MMRotatorCommands MMRC = new MMRotatorCommands();
 
 	public void onEnable(){
 		log.info("MMRotator enabled!");
