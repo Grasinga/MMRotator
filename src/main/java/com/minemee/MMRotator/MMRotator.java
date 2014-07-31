@@ -18,8 +18,10 @@ public class MMRotator extends JavaPlugin {
 
 		pm.registerEvents(this.blockListener, this);
 		
+		// Commands:
 		getCommand("rotateon").setExecutor(new MMRotatorCommands());
 		getCommand("rotateoff").setExecutor(new MMRotatorCommands());
+		getCommand("rotateselect").setExecutor(new MMRotatorCommands());
 	}
  
 	public void onDisable(){

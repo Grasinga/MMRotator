@@ -14,6 +14,11 @@ commands:
       usage: /rotateoff
       permission: MMRotator.rotateoff
       permission-message: You don't have permission.
+   rotateselect:
+      description: Activates the selection tool.
+      usage: /rotateselect
+      permission: MMRotator.rotateselect
+      permission-message: You don't have permission.
 permissions:
    MMRotator.*:
        description: Gives access to MMRotator.
@@ -25,4 +30,7 @@ permissions:
        default: true
    MMRotator.rotateoff:
        description: Allows deactivation of Rotator Tool.
+       default: true
+   MMRotator.rotateselect:
+       description: Allows activation of Selection Tool.
        default: true

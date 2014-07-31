@@ -1,5 +1,6 @@
 package com.minemee.MMRotator;
 
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -11,11 +12,13 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 public class MMRotatorBlockListener implements Listener {
 	private static boolean active = false;
+	private static boolean selecting = false;
 	private int count = 0;
 	public static void setActive(boolean b){active = b;}
+	public static void setSelecting(boolean b){selecting = b;}
 	@SuppressWarnings("deprecation")
 	@EventHandler(priority = EventPriority.NORMAL)
-	public void stickChange(PlayerInteractEvent event){	
+	public void stairRotate(PlayerInteractEvent event){	
 		final Player player = event.getPlayer();
 			if(event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK)
 			{
@@ -210,6 +213,30 @@ public class MMRotatorBlockListener implements Listener {
 							user.sendMessage("That is not a valid block!");
 						}
 					}
+				}
+				if(selecting)
+				{
+					Block block = event.getClickedBlock();
+					Location LocOne = new Location(player.getLocation().getWorld(), 0, 0, 0);
+					Location LocTwo = new Location(player.getLocation().getWorld(), 1, 0, 0);
+					if(event.getAction() == Action.LEFT_CLICK_BLOCK)
+					{
+						if(player.getItemInHand().getType().equals(Material.STICK))
+						{
+							LocOne = new Location(player.getLocation().getWorld(), block.getX(), block.getY(), block.getZ());
+							player.sendMessage("First Position set at: " + block.getX() + " " + block.getY() + " " + block.getZ());
+						}
+					}
+					if(event.getAction() == Action.RIGHT_CLICK_BLOCK)
+					{
+						if(player.getItemInHand().getType().equals(Material.STICK))
+						{
+							LocTwo = new Location(player.getLocation().getWorld(), block.getX(), block.getY(), block.getZ());
+							player.sendMessage("Second Position set at: " + block.getX() + " " + block.getY() + " " + block.getZ());
+						}
+					}
+					else
+						player.sendMessage("Please select a block.");
 				}
 			}
 		
