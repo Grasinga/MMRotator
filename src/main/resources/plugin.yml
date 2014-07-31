@@ -22,7 +22,7 @@ permissions:
            MMRotator.rotateoff: true
    MMRotator.rotateon:
        description: Allows activation of Rotator Tool.
-       default: op
+       default: true
    MMRotator.rotateoff:
        description: Allows deactivation of Rotator Tool.
-       default: op
+       default: true
