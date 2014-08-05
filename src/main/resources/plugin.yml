@@ -19,12 +19,19 @@ commands:
       usage: /rotateselect
       permission: MMRotator.rotateselect
       permission-message: You don't have permission.
+   rotateall:
+      description: Rotates the selected stairs.
+      usage: /rotateall
+      permission: MMRotator.rotateselect
+      permission-message: You don't have permission.
 permissions:
    MMRotator.*:
        description: Gives access to MMRotator.
        children:
            MMRotator.rotateon: true
            MMRotator.rotateoff: true
+           MMRotator.rotateselect: true
+           MMRotator.rotateall: true
    MMRotator.rotateon:
        description: Allows activation of Rotator Tool.
        default: true
@@ -33,4 +40,7 @@ permissions:
        default: true
    MMRotator.rotateselect:
        description: Allows activation of Selection Tool.
+       default: true
+   MMRotator.rotateall:
+       description: Allows rotation of selected stairs.
        default: true
